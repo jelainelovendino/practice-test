@@ -1,0 +1,741 @@
+
+/* ========================================
+   1. DESIGN SYSTEM & RESET
+======================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+    --color-dark: #111410;
+    --color-dark-soft: #1b1e18;
+    --color-light: #f5f5ef;
+    --color-white: #ffffff;
+    --color-accent: #d5ff64;
+    --color-muted: #8b9085;
+    --color-border: #34372f;
+
+    --font-body: 'DM Sans', sans-serif;
+    --font-heading: 'Space Grotesk', sans-serif;
+
+    --container-width: 1200px;
+    --section-padding: 110px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: var(--font-body);
+    background: var(--color-light);
+    color: var(--color-dark);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    object-fit: cover;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+a:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 5px;
+}
+
+::selection {
+    background: var(--color-accent);
+    color: var(--color-dark);
+}
+
+
+/* ========================================
+   2. TYPOGRAPHY
+======================================== */
+
+h1,
+h2,
+h3,
+nav > a:first-child,
+footer > a:first-child {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.045em;
+}
+
+h1 {
+    font-size: clamp(3rem, 7vw, 6.5rem);
+}
+
+h2 {
+    font-size: clamp(2.2rem, 4.5vw, 4rem);
+}
+
+h3 {
+    font-size: 1.65rem;
+}
+
+p {
+    font-size: 0.98rem;
+}
+
+section > header > p:first-child,
+section > p:first-child {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+
+/* ========================================
+   3. NAVIGATION
+======================================== */
+
+body > header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--color-dark);
+    color: var(--color-white);
+    border-bottom: 1px solid var(--color-border);
+}
+
+nav[aria-label="Main navigation"] {
+    max-width: var(--container-width);
+    min-height: 82px;
+    margin: 0 auto;
+    padding: 0 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+nav[aria-label="Main navigation"] > a:first-child {
+    color: var(--color-accent);
+    font-size: 1.8rem;
+    letter-spacing: -0.08em;
+}
+
+nav[aria-label="Main navigation"] ul {
+    display: flex;
+    align-items: center;
+    gap: 34px;
+}
+
+nav[aria-label="Main navigation"] li a {
+    color: #c6c9c0;
+    font-size: 0.88rem;
+    transition: color 0.2s ease;
+}
+
+nav[aria-label="Main navigation"] li a:hover {
+    color: var(--color-accent);
+}
+
+nav[aria-label="Main navigation"] > a:last-child {
+    background: var(--color-accent);
+    color: var(--color-dark);
+    padding: 12px 19px;
+    border-radius: 3px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    white-space: nowrap;
+    transition: background 0.2s ease;
+}
+
+nav[aria-label="Main navigation"] > a:last-child:hover {
+    background: var(--color-white);
+}
+
+
+/* ========================================
+   4. HERO SECTION
+======================================== */
+
+#home {
+    background: var(--color-dark);
+    color: var(--color-white);
+    padding: 100px max(32px, calc((100% - var(--container-width)) / 2)) 80px;
+}
+
+#home > p:first-child {
+    color: var(--color-accent);
+    margin-bottom: 28px;
+}
+
+#home h1 {
+    max-width: 1000px;
+    margin-bottom: 30px;
+}
+
+#home h1 span {
+    color: var(--color-accent);
+}
+
+#home > p:nth-of-type(2) {
+    max-width: 550px;
+    color: #b7bbb1;
+    font-size: 1.08rem;
+    line-height: 1.9;
+    margin-bottom: 34px;
+}
+
+#home > a {
+    display: inline-block;
+    padding: 15px 22px;
+    margin: 0 10px 40px 0;
+    border: 1px solid var(--color-border);
+    border-radius: 3px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    transition: all 0.25s ease;
+}
+
+#home > a:nth-of-type(1) {
+    background: var(--color-accent);
+    color: var(--color-dark);
+    border-color: var(--color-accent);
+}
+
+#home > a:nth-of-type(1):hover {
+    background: var(--color-white);
+    border-color: var(--color-white);
+}
+
+#home > a:nth-of-type(2):hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+}
+
+#home figure {
+    margin-top: 24px;
+    position: relative;
+}
+
+#home figure img {
+    height: 450px;
+    border-radius: 5px;
+    background: var(--color-dark-soft);
+    object-position: center;
+}
+
+#home figcaption {
+    color: var(--color-muted);
+    font-size: 0.8rem;
+    margin-top: 12px;
+}
+
+
+/* ========================================
+   5. COMPANY HIGHLIGHTS
+======================================== */
+
+section[aria-label="Company highlights"] {
+    background: var(--color-accent);
+    padding: 42px max(32px, calc((100% - var(--container-width)) / 2));
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+section[aria-label="Company highlights"] h2 {
+    font-size: 1.8rem;
+    max-width: 220px;
+}
+
+section[aria-label="Company highlights"] ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+section[aria-label="Company highlights"] li {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+section[aria-label="Company highlights"] strong {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+}
+
+section[aria-label="Company highlights"] li span {
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+
+/* ========================================
+   6. GENERAL SECTION LAYOUT
+======================================== */
+
+#services,
+#work,
+#about,
+#contact {
+    padding: var(--section-padding) max(32px, calc((100% - var(--container-width)) / 2));
+}
+
+#services > header,
+#work > header {
+    max-width: 730px;
+    margin-bottom: 55px;
+}
+
+#services > header > p:first-child,
+#work > header > p:first-child,
+#about > p:first-child {
+    color: #657a32;
+    margin-bottom: 20px;
+}
+
+#services > header h2,
+#work > header h2 {
+    margin-bottom: 22px;
+}
+
+#services > header > p:last-child,
+#work > header > p:last-child {
+    max-width: 570px;
+    color: #65695f;
+    line-height: 1.9;
+}
+
+
+/* ========================================
+   7. SERVICE CARDS
+======================================== */
+
+#services {
+    background: var(--color-light);
+}
+
+#services article {
+    padding: 30px 0;
+    border-top: 1px solid #d9dbd2;
+    display: grid;
+    grid-template-columns: 0.7fr 1.2fr 2fr 1fr;
+    align-items: start;
+    gap: 28px;
+}
+
+#services article > p:first-child {
+    color: #73796a;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
+
+#services article h3 {
+    font-size: 1.35rem;
+}
+
+#services article > p:nth-of-type(2) {
+    color: #65695f;
+    max-width: 350px;
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+#services article a,
+#work article > a,
+#about > a {
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+#services article a:hover,
+#work article > a:hover,
+#about > a:hover {
+    color: #657a32;
+}
+
+
+/* ========================================
+   8. SELECTED PROJECTS
+======================================== */
+
+#work {
+    background: #e9eae2;
+}
+
+#work article {
+    margin-bottom: 60px;
+}
+
+#work article:last-of-type {
+    margin-bottom: 0;
+}
+
+#work article figure {
+    overflow: hidden;
+    background: #d6d8cf;
+    border-radius: 4px;
+}
+
+#work article figure img {
+    aspect-ratio: 16 / 9;
+    transition: transform 0.5s ease;
+}
+
+#work article figure:hover img {
+    transform: scale(1.035);
+}
+
+#work article figcaption {
+    padding: 12px 16px;
+    font-size: 0.78rem;
+    color: #4f5549;
+}
+
+#work article > p:first-of-type {
+    margin-top: 22px;
+    margin-bottom: 12px;
+    color: #73796a;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+#work article h3 {
+    margin-bottom: 12px;
+    font-size: 1.9rem;
+}
+
+#work article > p:nth-of-type(2) {
+    max-width: 560px;
+    color: #65695f;
+    margin-bottom: 16px;
+    line-height: 1.8;
+}
+
+
+/* ========================================
+   9. ABOUT SECTION
+======================================== */
+
+#about {
+    background: var(--color-dark);
+    color: var(--color-white);
+}
+
+#about > p:first-child {
+    color: var(--color-accent);
+}
+
+#about h2 {
+    max-width: 900px;
+    margin-bottom: 28px;
+}
+
+#about > p:not(:first-child) {
+    max-width: 650px;
+    color: #b7bbb1;
+    line-height: 1.9;
+    margin-bottom: 18px;
+}
+
+#about > a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 14px 20px;
+    background: var(--color-accent);
+    color: var(--color-dark);
+    border-radius: 3px;
+}
+
+#about > a:hover {
+    background: var(--color-white);
+    color: var(--color-dark);
+}
+
+
+/* ========================================
+   10. CONTACT SECTION
+======================================== */
+
+#contact {
+    background: var(--color-accent);
+    text-align: center;
+}
+
+#contact > p:first-child {
+    margin-bottom: 22px;
+}
+
+#contact h2 {
+    max-width: 850px;
+    margin: 0 auto 25px;
+}
+
+#contact > p:nth-of-type(2) {
+    max-width: 500px;
+    margin: 0 auto 30px;
+    color: #3e4531;
+}
+
+#contact > a {
+    display: inline-block;
+    padding: 15px 24px;
+    background: var(--color-dark);
+    color: var(--color-white);
+    border-radius: 3px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    transition: background 0.2s ease;
+}
+
+#contact > a:hover {
+    background: #363b30;
+}
+
+
+/* ========================================
+   11. FOOTER
+======================================== */
+
+body > footer {
+    background: var(--color-dark);
+    color: var(--color-white);
+    padding: 55px max(32px, calc((100% - var(--container-width)) / 2)) 25px;
+}
+
+body > footer > a:first-child {
+    display: inline-block;
+    color: var(--color-accent);
+    font-size: 2rem;
+    margin-bottom: 12px;
+}
+
+body > footer > p:first-of-type {
+    color: #b7bbb1;
+    margin-bottom: 28px;
+}
+
+body > footer nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+body > footer nav a {
+    color: #c6c9c0;
+    font-size: 0.85rem;
+}
+
+body > footer nav a:hover {
+    color: var(--color-accent);
+}
+
+body > footer > p:last-child {
+    color: var(--color-muted);
+    font-size: 0.78rem;
+    margin-top: 22px;
+}
+
+
+/* ========================================
+   12. TABLET RESPONSIVENESS
+======================================== */
+
+@media (max-width: 900px) {
+    :root {
+        --section-padding: 80px;
+    }
+
+    nav[aria-label="Main navigation"] {
+        gap: 18px;
+        padding: 0 24px;
+    }
+
+    nav[aria-label="Main navigation"] ul {
+        gap: 18px;
+    }
+
+    section[aria-label="Company highlights"] {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    section[aria-label="Company highlights"] h2 {
+        max-width: none;
+    }
+
+    #services article {
+        grid-template-columns: 60px 1fr;
+        gap: 15px 24px;
+    }
+
+    #services article > p:nth-of-type(2) {
+        grid-column: 2;
+    }
+
+    #services article > a {
+        grid-column: 2;
+    }
+}
+
+
+/* ========================================
+   13. MOBILE RESPONSIVENESS
+======================================== */
+
+@media (max-width: 600px) {
+    :root {
+        --section-padding: 65px;
+    }
+
+    nav[aria-label="Main navigation"] {
+        min-height: auto;
+        padding: 20px;
+        flex-wrap: wrap;
+        gap: 18px;
+    }
+
+    nav[aria-label="Main navigation"] > a:first-child {
+        font-size: 1.6rem;
+    }
+
+    nav[aria-label="Main navigation"] > a:last-child {
+        padding: 10px 12px;
+        font-size: 0.78rem;
+    }
+
+    nav[aria-label="Main navigation"] ul {
+        order: 3;
+        width: 100%;
+        justify-content: space-between;
+        gap: 10px;
+        padding-top: 15px;
+        border-top: 1px solid var(--color-border);
+    }
+
+    nav[aria-label="Main navigation"] li a {
+        font-size: 0.8rem;
+    }
+
+    #home {
+        padding: 75px 22px 55px;
+    }
+
+    #home h1 {
+        font-size: clamp(2.8rem, 12vw, 4.5rem);
+    }
+
+    #home > p:nth-of-type(2) {
+        font-size: 0.98rem;
+    }
+
+    #home > a {
+        margin-right: 5px;
+        padding: 13px 15px;
+        font-size: 0.8rem;
+    }
+
+    #home figure img {
+        height: 250px;
+    }
+
+    section[aria-label="Company highlights"] {
+        padding: 35px 22px;
+    }
+
+    section[aria-label="Company highlights"] ul {
+        gap: 24px;
+    }
+
+    section[aria-label="Company highlights"] li {
+        min-width: 125px;
+    }
+
+    #services,
+    #work,
+    #about,
+    #contact {
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+
+    #services > header,
+    #work > header {
+        margin-bottom: 38px;
+    }
+
+    #services article {
+        grid-template-columns: 38px 1fr;
+        gap: 15px;
+        padding: 25px 0;
+    }
+
+    #services article h3 {
+        font-size: 1.2rem;
+    }
+
+    #services article > p:nth-of-type(2),
+    #services article > a {
+        grid-column: 2;
+    }
+
+    #work article {
+        margin-bottom: 45px;
+    }
+
+    #work article h3 {
+        font-size: 1.6rem;
+    }
+
+    body > footer {
+        padding: 45px 22px 22px;
+    }
+
+    body > footer nav ul {
+        gap: 18px;
+    }
+}
+
+
+/* ========================================
+   14. REDUCED MOTION ACCESSIBILITY
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
